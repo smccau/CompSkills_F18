@@ -1,3 +1,6 @@
 [submodule "Class_Resources"]
 	path = Class_Resources
 	url = https://github.com/jamesafoster/Class_Resources
+[submodule "_smccau"]
+	path = _smccau
+	url = https://github.com/jamesafoster/_smccau
