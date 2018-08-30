@@ -1,0 +1,16 @@
+## grep Usage
+# Check lecture notes for more
+
+grep <words> <file_name>
+-Returns places in <file_name> that match <words>.
+
+grep <words> <file_name> | wc
+-Returns the wordcounts for <words> in <file_name>
+
+^ is a beginning of string marker.
+$ is an ending of string marker.
+
+-c counts number of occurences
+-n shows line numbers of matches
+-i ignores case
+-w limits match to FULL words, "fixed = T" in R
