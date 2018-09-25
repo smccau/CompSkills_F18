@@ -1,0 +1,63 @@
+Lists are sequential, nx1 data types.  Python doesn't have 2D data structures,
+but the best way to accomodate that is having a list of lists.
+
+Lists can be created by passing an object square brackets that are delimited 
+internally with commas.  Similarly, passing an object with the list function and
+a set of values (e.g. list('abcde')) will list the function in individual
+parts without just making a string object.
+
+list.pop() removes an element from the list
+list.sort() sorts a list
+list.clear() clears a list
+list.append() adds an element to the list  
+
+dir() lets you see hidden functions in objects, which are bordered as:
+__function__.
+
+#################################
+## list.split() function usage ##
+#################################
+>>> header = '>MISEQ:7:000000000-AMAKG:1:1101:16998:1719 1:N:0:PE716:ST6_21 TTGACCCT|0|TAGACCTA|0 ST6_21_F|0|23|'
+>>> seq_fields = header.split(' ')
+>>> seq_fields
+['>MISEQ:7:000000000-AMAKG:1:1101:16998:1719', '1:N:0:PE716:ST6_21', 'TTGACCCT|0|TAGACCTA|0', 'ST6_21_F|0|23|']
+>>> seq_fields[0] = seq_fields[0].split(':')
+>>> seq_fields
+[['>MISEQ', '7', '000000000-AMAKG', '1', '1101', '16998', '1719'], '1:N:0:PE716:ST6_21', 'TTGACCCT|0|TAGACCTA|0', 'ST6_21_F|0|23|']
+>>> seq_fields[0][1]
+'7'
+>>> seq_fields[0][0]
+'>MISEQ'
+>>> 
+
+###########################
+## join() function usage ##
+#Only works when you have a list of strings.
+#The join() function joins string elements of a list (microbiome_headers) 
+#by some object ('\t').
+#returns a string with all the strings in list joined by string str
+###########################
+>>> microbiome_headers = ['ID', 'patientID', 'Week', 'Day', 'Lactobacillus_crispatus', 'Lactobacillus_iners']
+>>> microbiome_abundances = [
+...      ['w1.1', 'AYAC01', 1, 1, 4478, 12],
+...      ['w1.2', 'AYAC01', 1, 2, 3548, 8],
+...      ['w2.1', 'AYAC02', 1, 1, 6147, 422],
+...      ['w2.64', 'AYAC02', 10, 1, 3352, 1022],
+...      ['w3.65', 'AYAC03', 10, 2, 3346, 1974],
+... ]
+>>> '\t'.join(microbiome_headers)
+'ID\tpatientID\tWeek\tDay\tLactobacillus_crispatus\tLactobacillus_iners'
+>>> print('\t'.join(microbiome_headers))
+ID	patientID	Week	Day	Lactobacillus_crispatus	Lactobacillus_iners
+>>> print(''.join(microbiome_headers))
+IDpatientIDWeekDayLactobacillus_crispatusLactobacillus_iners
+>>> '\t'.join([1,2,3])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: sequence item 0: expected string, int found
+>>> first_sample = [str(x) for x in microbiome_abundances[0]]
+>>> first_sample
+['w1.1', 'AYAC01', '1', '1', '4478', '12']
+>>> print('\t'.join(first_sample))
+w1.1	AYAC01	1	1	4478	12
+>>> 

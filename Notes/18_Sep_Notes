@@ -1,0 +1,4 @@
+Basic data structure (strings, lists, slices)
+
+## Split a string by some factor and rejoin it with tabs in between the splits.
+print('\t'.join(string))
