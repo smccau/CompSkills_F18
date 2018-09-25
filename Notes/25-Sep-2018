@@ -1,0 +1,30 @@
+Dictionaries
+Need { } when defining dictionaries, as it is a sort of set.  [ ] would yield a list.
+
+>>> char_count_dict.keys()
+['A', 'C', 'G', 'N', 'U', 'T', 'Y']
+>>> char_count_dict.items()
+[('A', 9), ('C', 7), ('G', 16), ('N', 6), ('U', 2), ('T', 12), ('Y', 4)]
+>>> char_count_dict.items()[0][1]
+9
+>>> char_count_dict.values()
+[9, 7, 16, 6, 2, 12, 4]
+
+
+>>> 'U' in char_count_dict
+True
+
+
+>>> char_count_dict.get('X', 'NA')
+'NA'
+>>> char_count_dict.get('Y', ':)')
+4
+
+
+>>> sequence="CGGATCGNNAAGCTCTGTTGTTGGTGANNNYYGGATAYAGGUUNYGTAACTGGCCT"
+>>> counts = {}
+>>> for next_char in sequence:
+...     counts[next_char] = counts.get(next_char, 0) + 1
+... 
+>>> print(counts)
+{'A': 9, 'C': 7, 'G': 16, 'N': 6, 'U': 2, 'T': 12, 'Y': 4}
