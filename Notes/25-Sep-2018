@@ -28,3 +28,7 @@ True
 ... 
 >>> print(counts)
 {'A': 9, 'C': 7, 'G': 16, 'N': 6, 'U': 2, 'T': 12, 'Y': 4}
+
+
+.zip() is good for combining lists into a dict.  zip() returns a zip object.
+Therefore, coerce a zip object into a dictionary with dict(zip(list_1, list_2))
