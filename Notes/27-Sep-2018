@@ -1,0 +1,57 @@
+Tuples, sets, formatting strings redux, comprehension
+
+Tuples have three internal functions.  Two of those functions are widely used:
+tuple.count()
+tuple.index()
+
+Tuples are immutable, meaning you can't index into them.
+
+Tuples are useful when providing imput parameters to a function, and
+potentially when providing output from a function.
+
+x,y = y,x 
+
+
+
+Sets are iterable sequences of *unique* elements (like mathematical sets)
+Sets have functions like .intersection and .union
+
+>>> x = [1, 2, 3, 2, 2, 1, 2, 3, 1]
+>>> set(x)
+set([1, 2, 3])
+>>> x
+[1, 2, 3, 2, 2, 1, 2, 3, 1]
+>>> list(set(x))
+[1, 2, 3]
+
+
+Strings
+>>> 'hello, number is {}'.format(x)
+'hello, number is [1, 2, 3, 2, 2, 1, 2, 3, 1]'
+
+>>> job = 'student'
+>>> reserach = 'cool'
+>>> 'I am a {0}, my research is {1}'.format(job, reserach)
+'I am a student, my research is cool'
+>>> 'I am a {1}, my research is {0}'.format(job, reserach)
+'I am a cool, my research is student'
+
+##### Comprehension
+### List comprehension
+>>> numbers = list(range(20))
+>>> evens = [x for x in numbers if x%2 == 0]
+ #[ ] make it a list
+ #[ ] initializes evens as a list, and is usually forgotten
+>>> evens
+[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+vs. making a for loop to do the same thing.
+
+>>> print('\t'.join([str(x) for x in evens]))
+0	2	4	6	8	10	12	14	16	18
+
+>>> pairs = [(x,y) for x in list(range(4)) for y in list(range(4))]
+>>> pairs
+[(0, 0), (0, 1), (0, 2), (0, 3), (1, 0), (1, 1), (1, 2), (1, 3), (2, 0),
+(2, 1), (2, 2), (2, 3), (3, 0), (3, 1), (3, 2), (3, 3)]
+
+### Set comprehension 
