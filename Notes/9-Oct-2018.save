@@ -1,0 +1,10 @@
+# Creating a dict with counts that update per occurence of interest without
+# resetting or adding a new dict entry unnecessarily.
+
+counts = {}
+for codon in codon_list:
+    if codon in counts:
+	counts[codon] = counts[codon] + 1
+    else:
+	counts[codon] = 1
+
